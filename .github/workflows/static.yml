@@ -30,7 +30,7 @@ jobs:
       - name: Copy app/home.html to index.html
         run: |
           mkdir -p public
-          cp src/app/home.html public/index.html
+          cp app/home.html public/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
