@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bimbelbumbel123 – Navigation</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/flowbite@2.2.0/dist/flowbite.min.js"></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900">
+
+    <div id="nav-placeholder"></div>
+
+
+    <script>
+        fetch('_nav.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div class="main-content section mt-24 bg-gray-100 py-16">
+        <div class="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
+            <div
+                class="flex-1 p-12 bg-white border border-violet-400 rounded-3xl shadow-2xl dark:bg-gray-800 dark:border-violet-500">
+                <section>
+                    <h1 class="text-4xl font-extrabold mb-6 text-violet-400 dark:text-violet-400">Über Mich</h1>
+                    <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Hallo Leute, ich bin <strong>Bimbelbumbel123</strong>, ein Streamer aus der Schweiz.<br /><br />
+                        Ich mache deutschen Content, welcher oft zwischen Deutsch und Schweizerdeutsch variiert. Dabei
+                        geht es um
+                        Gaming, Unterhaltung und alles, was mir und meiner Community am meisten Spass macht!<br /><br />
+                        Ich spiele in den meisten Streams Videospiele. Ich versuche auch immer neue Spiele zu testen,
+                        damit ihr
+                        immer auf dem Laufenden seid.
+                    </p>
+                </section>
+            </div>
+            <div
+                class="flex-1 p-12 bg-white border border-violet-400 rounded-3xl shadow-2xl dark:bg-gray-800 dark:border-violet-500 flex items-center justify-center">
+                <img src="../swiss-gaming.jpg" alt="Schweizer Gaming" class="rounded-2xl max-w-full h-auto">
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+<footer>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch("_test.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-placeholder").innerHTML = data;
+            });
+    </script>
+</footer>
+
+</html>
