@@ -10,9 +10,8 @@
   <script src="https://unpkg.com/flowbite@2.2.0/dist/flowbite.min.js"></script>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
 
-  <!-- Navigation wird geladen -->
   <div id="nav-placeholder"></div>
   <script>
     fetch('_nav.html')
@@ -22,53 +21,84 @@
       });
   </script>
 
-  <!-- Clip Grid -->
   <div class="max-w-7xl mx-auto px-4 py-8">
-    <h1 class="text-3xl mt-24 font-bold mb-6 text-center">Clips von Bimbelbumbel123</h1>
+    <h1 class="text-3xl mt-24 font-bold mb-6 text-center text-violet-400">Clips von Bimbelbumbel123</h1>
     <div id="clips" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <div class="flex justify-center mt-8 space-x-4">
+      <button id="prevPage" class="px-4 py-2 bg-violet-500 text-white rounded disabled:opacity-50">Zurück</button>
+      <button id="nextPage" class="px-4 py-2 bg-violet-500 text-white rounded disabled:opacity-50">Weiter</button>
+    </div>
   </div>
 
-  <!-- Clip-Loader -->
   <script>
+    const clipsPerPage = 15;
+    let currentPage = 1;
+    let clips = [];
+
+    function renderClips() {
+      const container = document.getElementById('clips');
+      container.innerHTML = '';
+      const start = (currentPage - 1) * clipsPerPage;
+      const end = start + clipsPerPage;
+      const pageClips = clips.slice(start, end);
+
+      pageClips.forEach(clip => {
+        const card = document.createElement('div');
+        card.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border dark:border-violet-400';
+        card.innerHTML = `
+          <div class="p-4">
+            <h3 class="text-lg font-semibold mb-2">${clip.title}</h3>
+            <iframe
+              src="https://clips.twitch.tv/embed?clip=${clip.id}&parent=${window.location.hostname}"
+              width="100%" height="315"
+              allowfullscreen frameborder="0"
+              class="rounded-lg">
+            </iframe>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('prevPage').disabled = currentPage === 1;
+      document.getElementById('nextPage').disabled = end >= clips.length;
+    }
+
     fetch('clips.json')
       .then(response => {
         if (!response.ok) throw new Error("clips.json nicht gefunden");
         return response.json();
       })
-      .then(clips => {
-        console.log("Clips geladen:", clips); // Debug-Ausgabe
-        const container = document.getElementById('clips');
-        clips.forEach(clip => {
-          const card = document.createElement('div');
-          card.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden';
-          card.innerHTML = `
-        <div class="p-4">
-          <h3 class="text-lg font-semibold mb-2">${clip.title}</h3>
-          <iframe
-            src="https://clips.twitch.tv/embed?clip=${clip.id}&parent=${window.location.hostname}"
-            width="100%" height="315"
-            allowfullscreen frameborder="0"
-            class="rounded-lg">
-          </iframe>
-        </div>
-      `;
-          container.appendChild(card);
-        });
+      .then(data => {
+        clips = data;
+        renderClips();
       })
       .catch(error => {
         console.error("Fehler beim Laden der Clips:", error);
         document.getElementById('clips').innerHTML = `
-      <div class="text-red-600 text-center">Fehler beim Laden der Clips 😢</div>
-    `;
+          <div class="text-red-600 text-center">Fehler beim Laden der Clips 😢</div>
+        `;
       });
 
+    document.getElementById('prevPage').addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderClips();
+      }
+    });
+
+    document.getElementById('nextPage').addEventListener('click', () => {
+      if ((currentPage * clipsPerPage) < clips.length) {
+        currentPage++;
+        renderClips();
+      }
+    });
   </script>
 
 </body>
 
 <footer>
   <div id="footer-placeholder"></div>
-
   <script>
     fetch("_foot.html")
       .then(response => response.text())
