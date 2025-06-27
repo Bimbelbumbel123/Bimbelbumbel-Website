@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/flowbite@2.2.0/dist/flowbite.min.js"></script>
-  
+
   <title>Home</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="relative">
 
-  <!-- Video Hintergrund -->
   <video class="fixed top-0 left-0 w-full h-full object-cover z-[-1]" autoplay muted loop playsinline>
     <source src="./img/Bimbelbumbel_Intro.mp4" type="video/mp4" />
     Dein Browser unterstützt kein HTML5-Video.
   </video>
 
-  <!-- Overlay -->
   <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-0"></div>
 
-  <!-- Hero-Bereich: Nur dieser Bereich sichtbar auf erstem Viewport -->
   <div class="relative z-10 flex flex-col justify-center items-center text-white h-screen text-center px-4">
     <h1 class="text-3xl md:text-5xl font-bold mb-4">Willkommen auf meiner Seite</h1>
     <p class="text-lg md:text-xl">Bimbelbumbel123 live on Twitch!</p>
   </div>
 
-  <!-- Nachfolgender Content startet unter dem Fold -->
   <div class="main-content section px-4 py-12 bg-gray-100 dark:bg-gray-800">
     <section class="text-center max-w-3xl mx-auto">
       <h2 class="text-violet-400 font-bold text-2xl md:text-3xl mb-4">Wer ist Bimbelbumbel123?</h2>
@@ -37,25 +35,37 @@
     </section>
   </div>
 
-  <div class="main-content section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 py-12 bg-gray-100 dark:bg-gray-800 text-center text-gray-900 dark:text-white">
-    
-    <section class="p-4 border rounded-xl border-violet-400 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-violet-400">
-      <a href="ueber-mich.html" class="text-violet-400 hover:bg-violet-400 hover:text-white text-xl font-semibold block py-2 rounded">Über Mich</a>
+  <div
+    class="main-content section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6 py-12 bg-gray-100 dark:bg-gray-800 text-center text-gray-900 dark:text-white">
+
+    <section
+      class="p-4 border rounded-xl border-violet-400 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-violet-400">
+      <a href="ueber-mich.html"
+        class="text-violet-400 hover:bg-violet-400 hover:text-white text-xl font-semibold block py-2 rounded">Über
+        Mich</a>
       <p>Hier kriegst du einen Einblick von mir</p>
     </section>
 
-    <section class="p-4 border rounded-xl border-violet-400 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-violet-400">
-      <a href="streamplan.html" class="text-violet-400 hover:bg-violet-400 hover:text-white text-xl font-semibold block py-2 rounded">Streamplan</a>
+    <section
+      class="p-4 border rounded-xl border-violet-400 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-violet-400">
+      <a href="streamplan.html"
+        class="text-violet-400 hover:bg-violet-400 hover:text-white text-xl font-semibold block py-2 rounded">Streamplan</a>
       <p>Hier findest du alle Informationen zu meinen Streams</p>
     </section>
 
-    <section class="p-4 border rounded-xl border-violet-400 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-violet-400">
-      <a href="clips_and_highlights.html" class="text-violet-400 hover:bg-violet-400 hover:text-white text-xl font-semibold block py-2 rounded">Clips & Highlights</a>
+    <section
+      class="p-4 border rounded-xl border-violet-400 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-violet-400">
+      <a href="clips_and_highlights.html"
+        class="text-violet-400 hover:bg-violet-400 hover:text-white text-xl font-semibold block py-2 rounded">Clips &
+        Highlights</a>
       <p>Hier findest du Clips und witzige Momente aus meinen Streams.</p>
     </section>
 
-    <section class="p-4 border rounded-xl border-violet-400 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-violet-400">
-      <a href="kontakt_und_community.html" class="text-violet-400 hover:bg-violet-400 hover:text-white text-xl font-semibold block py-2 rounded">Kontakt & Community</a>
+    <section
+      class="p-4 border rounded-xl border-violet-400 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:hover:shadow-violet-400">
+      <a href="kontakt_und_community.html"
+        class="text-violet-400 hover:bg-violet-400 hover:text-white text-xl font-semibold block py-2 rounded">Kontakt &
+        Community</a>
       <p>Folge mir auf Twitch, Youtube, TikTok und Instagram!</p>
     </section>
 
@@ -81,4 +91,5 @@
   </footer>
 
 </body>
+
 </html>

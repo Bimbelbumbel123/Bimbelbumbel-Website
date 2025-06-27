@@ -19,8 +19,27 @@
       .then(res => res.text())
       .then(data => {
         document.getElementById('nav-placeholder').innerHTML = data;
+
+        const toggleBtn = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const closeBtn = document.getElementById('sidebar-close');
+
+        toggleBtn?.addEventListener('click', () => {
+          sidebar.classList.remove('translate-x-full');
+          overlay.classList.remove('hidden');
+        });
+
+        closeBtn?.addEventListener('click', closeSidebar);
+        overlay?.addEventListener('click', closeSidebar);
+
+        function closeSidebar() {
+          sidebar.classList.add('translate-x-full');
+          overlay.classList.add('hidden');
+        }
       });
   </script>
+
 
   <div class="main-content section mt-24 bg-gray-100 dark:bg-gray-800 py-16">
     <div class="w-full max-w-4xl mx-auto flex flex-col gap-8">

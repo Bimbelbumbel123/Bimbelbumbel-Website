@@ -1,5 +1,3 @@
-<!--erstellt mit flowbite-->
-
 <!DOCTYPE html>
 <html lang="de">
 
@@ -8,28 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bimbelbumbel123 – Navigation</title>
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script src="https://unpkg.com/flowbite@2.2.0/dist/flowbite.min.js"></script>
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900">
 
+    <!-- Navigation -->
     <nav class="bg-transparent dark:bg-transparent absolute top-0 left-0 w-full z-50">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+            <!-- Logo + Name -->
             <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./img/bimbelbumbel_logo.jpeg" class="h-12 rounded-3xl" />
-                <span
-                    class="self-center text-2xl font-semibold whitespace-nowrap text-violet-400 dark:text-violet-400">Bimbelbumbel123</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-violet-400 dark:text-violet-400">
+                    Bimbelbumbel123
+                </span>
             </a>
+
+            <!-- Rechte Seite: Login, Sign up, Burger -->
             <div class="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <a href="#"
                     class="text-gray-800 dark:text-white hover:bg-violet-400 hover:text-white dark:hover:bg-violet-400 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5">Login</a>
                 <a href="#"
                     class="text-white bg-violet-400 hover:bg-violet-600 dark:bg-violet-400 dark:hover:bg-violet-600 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5">Sign
                     up</a>
-                <!-- Der Menü-Button -->
-                <button id="mobile-menu-toggle" type="button"
+
+                <!-- Burger-Menü Button -->
+                <button id="sidebar-toggle" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-700">
                     <span class="sr-only">Menü öffnen</span>
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -37,44 +40,9 @@
                             d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-
-                <!-- Das Dropdown-Menü (nur sichtbar auf Mobile) -->
-                <div id="mobile-menu"
-                    class="hidden md:hidden mt-2 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 absolute right-4 top-16 z-50 w-48">
-                    <ul class="space-y-2">
-                        <li><a href="index.html"
-                                class="block text-gray-900 dark:text-white hover:text-violet-400">Home</a></li>
-                        <li><a href="ueber-mich.html"
-                                class="block text-gray-900 dark:text-white hover:text-violet-400">Über Mich</a></li>
-                        <li><a href="streamplan.html"
-                                class="block text-gray-900 dark:text-white hover:text-violet-400">Streamplan</a></li>
-                        <li><a href="clips_and_highlights.html"
-                                class="block text-gray-900 dark:text-white hover:text-violet-400">Clips & Highlights</a>
-                        </li>
-                        <li><a href="kontakt_und_community.html"
-                                class="block text-gray-900 dark:text-white hover:text-violet-400">Kontakt &
-                                Community</a></li>
-                    </ul>
-                </div>
-
-                <!-- JavaScript zum Öffnen/Schließen -->
-                <script>
-                    const toggleBtn = document.getElementById('mobile-menu-toggle');
-                    const menu = document.getElementById('mobile-menu');
-
-                    toggleBtn.addEventListener('click', () => {
-                        menu.classList.toggle('hidden');
-                    });
-
-                    // Optional: Klick außerhalb schließt das Menü
-                    document.addEventListener('click', (e) => {
-                        if (!menu.contains(e.target) && !toggleBtn.contains(e.target)) {
-                            menu.classList.add('hidden');
-                        }
-                    });
-                </script>
-
             </div>
+
+            <!-- Desktop-Navigation -->
             <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
                 <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                     <li><a href="index.html"
@@ -96,6 +64,24 @@
             </div>
         </div>
     </nav>
+
+    <div id="sidebar"
+        class="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-4">
+            <button id="sidebar-close"
+                class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white text-2xl">
+                ✕
+            </button>
+            <ul class="mt-6 space-y-4 text-gray-800 dark:text-white uppercase">
+                <li><a href="index.html" class="block hover:text-violet-400">Home</a></li>
+                <li><a href="ueber-mich.html" class="block hover:text-violet-400">Über Mich</a></li>
+                <li><a href="streamplan.html" class="block hover:text-violet-400">Streamplan</a></li>
+                <li><a href="clips_and_highlights.html" class="block hover:text-violet-400">Clips & Highlights</a></li>
+                <li><a href="kontakt_und_community.html" class="block hover:text-violet-400">Kontakt & Community</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>

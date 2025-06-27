@@ -17,9 +17,27 @@
     fetch('_nav.html')
       .then(res => res.text())
       .then(data => {
-        document.getElementById('nav-placeholder').innerHTML = data;
+        document.getElementById('nav-placeholder').innerHTML = data
+        const toggleBtn = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const closeBtn = document.getElementById('sidebar-close');
+
+        toggleBtn?.addEventListener('click', () => {
+          sidebar.classList.remove('translate-x-full');
+          overlay.classList.remove('hidden');
+        });
+
+        closeBtn?.addEventListener('click', closeSidebar);
+        overlay?.addEventListener('click', closeSidebar);
+
+        function closeSidebar() {
+          sidebar.classList.add('translate-x-full');
+          overlay.classList.add('hidden');
+        }
       });
   </script>
+
 
   <div class="max-w-7xl mx-auto px-4 py-8">
     <h1 class="text-3xl mt-24 font-bold mb-6 text-center text-violet-400">Clips von Bimbelbumbel123</h1>
