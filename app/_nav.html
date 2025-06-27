@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bimbelbumbel123 – Navigation</title>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900">
 
-    <!-- Navigation -->
     <nav class="bg-transparent dark:bg-transparent absolute top-0 left-0 w-full z-50">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
-            <!-- Logo + Name -->
             <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./img/bimbelbumbel_logo.jpeg" class="h-12 rounded-3xl" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-violet-400 dark:text-violet-400">
@@ -23,7 +20,6 @@
                 </span>
             </a>
 
-            <!-- Rechte Seite: Login, Sign up, Burger -->
             <div class="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <a href="#"
                     class="text-gray-800 dark:text-white hover:bg-violet-400 hover:text-white dark:hover:bg-violet-400 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5">Login</a>
@@ -31,7 +27,6 @@
                     class="text-white bg-violet-400 hover:bg-violet-600 dark:bg-violet-400 dark:hover:bg-violet-600 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5">Sign
                     up</a>
 
-                <!-- Burger-Menü Button -->
                 <button id="sidebar-toggle" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-700">
                     <span class="sr-only">Menü öffnen</span>
@@ -42,7 +37,6 @@
                 </button>
             </div>
 
-            <!-- Desktop-Navigation -->
             <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
                 <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                     <li><a href="index.html"
